@@ -1,133 +1,145 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mind Go — Official Edition T-Shirt</title>
-    <!-- CSS File -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Go - T-Shirt</title>
+  <!-- ربط ملف التنسيقات الخارجي -->
+  <link rel="stylesheet" href="style.css">
+  <!-- مكتبة الأيقونات Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="min-h-screen font-sans text-[#063061] selection:bg-[#E49F2B] selection:text-[#063061] antialiased flex flex-col justify-between bg-[#F5F0E6]">
 
-    <div class="site-wrapper">
-        <!-- ----------------------------------------------------------------- -->
-        <!-- HEADER / NAVBAR                                                   -->
-        <!-- ----------------------------------------------------------------- -->
-        <header class="navbar">
-            <div class="nav-container">
-                <!-- Logo -->
-                <div class="logo">
-                    <span class="logo-box"><bdi>Mind Go</bdi></span>
-                </div>
+  <div>
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 bg-[#F5F0E6]/95 backdrop-blur-md border-b border-[#063061]/10">
+      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <div class="flex items-center">
+          <span class="text-2xl font-black tracking-widest uppercase border-2 border-[#063061] px-3 py-1 font-mono">
+            Mind Go
+          </span>
+        </div>
 
-                <!-- Desktop Navigation -->
-                <nav class="desktop-nav">
-                    <a href="#concept">عن العلامة والمنتج</a>
-                    <!-- يظهر الزر أوتوماتيكياً عبر JavaScript عند تعيين رابط Amazon -->
-                    <div id="amazon-nav-container"></div>
-                </nav>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+          <a href="#concept" class="hover:text-[#E49F2B] transition-colors focus:outline-none focus:ring-2 focus:ring-[#E49F2B] px-1 py-0.5 rounded">
+            Philosophy
+          </a>
+          
+          <div id="desktop-cta-container">
+            <!-- سيتم التحكم به عبر JavaScript -->
+          </div>
+        </nav>
 
-                <!-- Mobile Menu Button -->
-                <button id="menu-toggle-btn" class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
-                    <svg id="menu-icon" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden p-2 text-[#063061] focus:outline-none focus:ring-2 focus:ring-[#E49F2B] rounded" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Drawer -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#F5F0E6] border-b border-[#063061]/10 px-6 py-6 space-y-4">
+        <a href="#concept" class="mobile-link block font-medium text-lg hover:text-[#E49F2B]">
+          Philosophy
+        </a>
+        <div id="mobile-cta-container">
+          <!-- سيتم التحكم به عبر JavaScript -->
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="pt-8 pb-12 md:pt-16 md:pb-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Product Identity & Value -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div class="inline-flex items-center gap-2 border border-[#063061]/20 px-3 py-1 text-xs font-mono tracking-widest text-[#063061] uppercase">
+              <span class="w-2 h-2 rounded-full bg-[#E49F2B]"></span>
+              MIND GO // EDITION 01
             </div>
 
-            <!-- Mobile Drawer -->
-            <div id="mobile-drawer" class="mobile-drawer hidden">
-                <a href="#concept" class="mobile-link">عن العلامة والمنتج</a>
-                <div id="amazon-mobile-container"></div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.15] tracking-tight text-[#063061]">
+              A minimalist T-shirt built for thought and execution.
+            </h1>
+
+            <p class="text-base sm:text-lg text-[#063061]/80 max-w-xl leading-relaxed">
+              Designed for those who understand knowledge, apply it, and drive progress. Edition 01 by Mind Go.
+            </p>
+
+            <!-- Primary CTA Area -->
+            <div class="pt-2 space-y-3">
+              <div id="hero-cta-container">
+                <!-- سيتم التحكم به عبر JavaScript -->
+              </div>
+
+              <div class="flex items-center gap-2 text-xs text-[#063061]/70">
+                <i data-lucide="info" class="w-4 h-4 text-[#063061] flex-shrink-0"></i>
+                <span>Exact sizing charts and available variants are provided on Amazon.</span>
+              </div>
             </div>
-        </header>
+          </div>
 
-        <!-- ----------------------------------------------------------------- -->
-        <!-- MAIN CONTENT / HERO SECTION                                       -->
-        <!-- ----------------------------------------------------------------- -->
-        <main>
-            <section class="hero-section">
-                <div class="hero-container">
-                    
-                    <!-- Text & Conversion Content -->
-                    <div class="hero-content">
-                        <div class="tagline">
-                            <span class="tagline-dot"></span>
-                            <bdi>MIND GO // EDITION 01</bdi>
-                        </div>
+          <!-- Product Visual Frame -->
+          <div class="lg:col-span-5">
+            <div class="relative aspect-square sm:aspect-[4/5] bg-[#063061]/5 border border-[#063061]/15 p-6 flex flex-col items-center justify-center">
+              
+              <div id="product-visual-container" class="w-full h-full flex flex-col items-center justify-center">
+                <!-- سيتم عرض الصورة أو إطار المكون المؤقت هنا عبر الجافاسكريبت -->
+              </div>
 
-                        <h1 class="hero-title">
-                            تيشيرت مخصص للتفكير والعمل. صُمم لمن يطبق المعرفة ولا يكتفي باستهلاكها.
-                        </h1>
+              <div class="mt-4 text-center">
+                <span class="text-xs font-mono text-[#063061]/60">
+                  Mind Go T-Shirt // Official Edition
+                </span>
+              </div>
 
-                        <p class="hero-description">
-                            الإصدار الأول من علامة <span class="bold"><bdi>Mind Go</bdi></span>. تصميم هادئ يركز على الفهم والتطبيق الفعلي.
-                        </p>
-
-                        <!-- Action Area -->
-                        <div class="action-area">
-                            <div id="amazon-hero-container"></div>
-
-                            <div class="info-note">
-                                <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                                <span>جدول المقاسات الدقيق والخيارات المتاحة معروضة على صفحة المنتج في <bdi>Amazon</bdi>.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product Image Area -->
-                    <div class="hero-visual">
-                        <div class="product-frame">
-                            <div id="product-image-container" class="image-container">
-                                <!-- سيتم توليد صورة المنتج أو الإطار المؤقت الهادئ بواسطة JS -->
-                            </div>
-                            <div class="frame-footer">
-                                <bdi>Mind Go T-Shirt // Official Edition</bdi>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ----------------------------------------------------------------- -->
-            {/* BRAND & PRODUCT CONCEPT                                           */}
-            <!-- ----------------------------------------------------------------- -->
-            <section id="concept" class="concept-section">
-                <div class="concept-container">
-                    <span class="section-tag">// الفلسفة والتصميم</span>
-                    <h2 class="section-title">رمزية الفهم والتطبيق</h2>
-                    <p class="section-text">
-                        تم إنشاء <span class="bold"><bdi>Mind Go</bdi></span> لتكون تعبيراً عن التطور الشخصي الموجه بالعمل. التيشيرت صُمم ليكون قطعة بسيطة تعبر عن عقليتك دون صخب بصري، مع نقل تجربة الطلب والمقاسات بالكامل عبر منصة <bdi>Amazon</bdi>.
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <!-- ----------------------------------------------------------------- -->
-        <!-- FOOTER                                                            -->
-        <!-- ----------------------------------------------------------------- -->
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="copyright">
-                    <span class="footer-logo"><bdi>Mind Go</bdi></span>
-                    <p>© <span id="current-year"></span> <bdi>Mind Go</bdi>. جميع الحقوق محفوظة.</p>
-                </div>
-
-                <div class="disclaimer">
-                    <p><bdi>Amazon</bdi> وشعارها علامات تجارية مسجلة لشركة <bdi>Amazon.com, Inc.</bdi> أو شركائها.</p>
-                </div>
             </div>
-        </footer>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND & PRODUCT CONCEPT -->
+    <section id="concept" class="py-12 border-t border-[#063061]/10 bg-[#063061]/[0.02]">
+      <div class="max-w-4xl mx-auto px-6 space-y-4 text-left">
+        <span class="text-xs font-mono text-[#E49F2B] uppercase tracking-widest block">
+          // PHILOSOPHY & DESIGN
+        </span>
+        <h2 class="text-2xl font-bold text-[#063061]">
+          Driven by Mindset & Action
+        </h2>
+        <p class="text-base text-[#063061]/80 leading-relaxed">
+          <span class="font-bold">Mind Go</span> was built as a visual mark for continuous growth and application. This T-shirt is designed with a clean aesthetic for those who value clarity and execution, backed by seamless fulfillment directly on Amazon.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-[#063061]/10 text-xs text-[#063061]/60 bg-[#F5F0E6]">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <span class="font-bold text-[#063061] uppercase tracking-wider block mb-0.5">Mind Go</span>
+        <p id="footer-year"></p>
+      </div>
+
+      <div class="max-w-xs text-center sm:text-right text-[11px]">
+        <p>
+          Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
+        </p>
+      </div>
     </div>
+  </footer>
 
-    <!-- JS File -->
-    <script src="script.js"></script>
+  <!-- ربط ملف الجافاسكريبت الخارجي -->
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,141 +1,100 @@
-/**
- * MIND GO LANDING PAGE - CONFIGURATION & INTERACTION
- */
-
-// -----------------------------------------------------------------------------
-// CRITICAL CONFIGURATION
-// ضع رابط المنتج وصورة المنتج هنا عند توفرهما فقط
-// -----------------------------------------------------------------------------
-const AMAZON_PRODUCT_URL = ""; // مثال: "https://www.amazon.com/dp/B0XXXXXX"
-const PRODUCT_IMAGE_URL = "";  // مثال: "https://domain.com/tshirt.png"
-
-// -----------------------------------------------------------------------------
-// INITIALIZATION ON DOM LOAD
-// -----------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. التحديث التلقائي لسنة حقوق النشر
-    const yearSpan = document.getElementById("current-year");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+  // ---------------------------------------------------------------------------
+  // CONFIGURATION (أدخل روابطك هنا عند توفرها)
+  // ---------------------------------------------------------------------------
+  const AMAZON_PRODUCT_URL = ""; // مثال: "https://www.amazon.com/dp/B0XXXXXX"
+  const PRODUCT_IMAGE_URL = "";  // مثال: "https://domain.com/tshirt.png"
 
-    // 2. معالجة روابط أزرار Amazon
-    renderAmazonButtons();
+  const hasAmazonLink = Boolean(AMAZON_PRODUCT_URL && AMAZON_PRODUCT_URL.trim() !== "");
 
-    // 3. معالجة إطار الصورة (الحقيقية أو المؤقتة الهادئة)
-    renderProductVisual();
+  // 1. إعداد أزرار الشراء (Desktop & Mobile & Hero)
+  const desktopCtaContainer = document.getElementById("desktop-cta-container");
+  const mobileCtaContainer = document.getElementById("mobile-cta-container");
+  const heroCtaContainer = document.getElementById("hero-cta-container");
 
-    // 4. التحكم في القائمة المنزلقة للهواتف الذكية
-    setupMobileMenu();
-});
-
-// -----------------------------------------------------------------------------
-// RENDER AMAZON BUTTONS (SAFE RENDERING)
-// -----------------------------------------------------------------------------
-function renderAmazonButtons() {
-    const hasUrl = Boolean(AMAZON_PRODUCT_URL && AMAZON_PRODUCT_URL.trim() !== "");
-
-    const navContainer = document.getElementById("amazon-nav-container");
-    const mobileContainer = document.getElementById("amazon-mobile-container");
-    const heroContainer = document.getElementById("amazon-hero-container");
-
-    if (hasUrl) {
-        // زر النافبار للمكتب
-        navContainer.innerHTML = `
-            <a href="${AMAZON_PRODUCT_URL}" target="_blank" rel="noopener noreferrer" class="btn-nav">
-                <span>الاطلاع على <bdi>Amazon</bdi></span>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#E49F2B" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-        `;
-
-        // زر النافبار للهاتف
-        mobileContainer.innerHTML = `
-            <a href="${AMAZON_PRODUCT_URL}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%;">
-                <span>الاطلاع على صفحة المنتج في <bdi>Amazon</bdi></span>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-        `;
-
-        // زر الشراء الرئيسي في قسم الـ Hero
-        heroContainer.innerHTML = `
-            <a href="${AMAZON_PRODUCT_URL}" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                <span>الاطلاع على المنتج والشراء عبر <bdi>Amazon</bdi></span>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            </a>
-        `;
-    } else {
-        // حالة عدم توفر الرابط (إظهار شارات غير نشطة دون أخطاء)
-        navContainer.innerHTML = `<span class="badge-disabled">رابط Amazon يتوفر قريباً</span>`;
-        mobileContainer.innerHTML = `<div class="badge-disabled" style="text-align: center; width: 100%;">سيتم تفعيل رابط الشراء فور إطلاق المنتج على Amazon</div>`;
-        heroContainer.innerHTML = `<div class="badge-disabled-large">رابط الشراء يتوفر قريباً عند الإطلاق على <bdi>Amazon</bdi></div>`;
-    }
-}
-
-// -----------------------------------------------------------------------------
-// RENDER PRODUCT VISUAL (EDITORIAL FALLBACK)
-// -----------------------------------------------------------------------------
-function renderProductVisual() {
-    const container = document.getElementById("product-image-container");
-    const hasImage = Boolean(PRODUCT_IMAGE_URL && PRODUCT_IMAGE_URL.trim() !== "");
-
-    if (hasImage) {
-        const img = document.createElement("img");
-        img.src = PRODUCT_IMAGE_URL;
-        img.alt = "تيشيرت Mind Go";
-        img.className = "product-img";
-        
-        // التعامل مع فشل تحميل الصورة
-        img.onerror = () => {
-            renderEditorialPlaceholder(container);
-        };
-
-        container.appendChild(img);
-    } else {
-        renderEditorialPlaceholder(container);
-    }
-}
-
-function renderEditorialPlaceholder(container) {
-    container.innerHTML = `
-        <div class="editorial-placeholder">
-            <span class="placeholder-brand"><bdi>MIND GO</bdi></span>
-            <span class="placeholder-text">[ OFFICIAL APPAREL ]</span>
-        </div>
+  if (hasAmazonLink) {
+    desktopCtaContainer.innerHTML = `
+      <a href="${AMAZON_PRODUCT_URL}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#063061] text-[#F5F0E6] px-5 py-2.5 text-sm font-bold hover:bg-[#063061]/90 transition-all focus:outline-none focus:ring-2 focus:ring-[#E49F2B]">
+        <span>Buy on Amazon</span>
+        <i data-lucide="external-link" class="w-4 h-4 text-[#E49F2B]"></i>
+      </a>
     `;
-}
+    mobileCtaContainer.innerHTML = `
+      <a href="${AMAZON_PRODUCT_URL}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-[#063061] text-[#F5F0E6] w-full py-3.5 font-bold">
+        <span>View Product on Amazon</span>
+        <i data-lucide="external-link" class="w-4 h-4 text-[#E49F2B]"></i>
+      </a>
+    `;
+    heroCtaContainer.innerHTML = `
+      <a href="${AMAZON_PRODUCT_URL}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-[#E49F2B] text-[#063061] px-8 py-4 font-bold text-base hover:bg-[#E49F2B]/90 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#063061]">
+        <span>View & Buy on Amazon</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    `;
+  } else {
+    desktopCtaContainer.innerHTML = `
+      <span class="text-xs font-mono bg-[#063061]/5 border border-[#063061]/15 px-3 py-2 text-[#063061]/60">
+        Amazon Link Coming Soon
+      </span>
+    `;
+    mobileCtaContainer.innerHTML = `
+      <div class="text-center py-3 bg-[#063061]/5 border border-[#063061]/10 text-xs font-mono text-[#063061]/60">
+        Amazon link will be enabled upon official launch.
+      </div>
+    `;
+    heroCtaContainer.innerHTML = `
+      <div class="inline-flex items-center gap-3 bg-[#063061]/10 text-[#063061]/50 px-8 py-4 font-bold text-base cursor-not-allowed border border-[#063061]/15">
+        <span>Purchase link available soon on Amazon</span>
+      </div>
+    `;
+  }
 
-// -----------------------------------------------------------------------------
-// MOBILE MENU CONTROLLER
-// -----------------------------------------------------------------------------
-function setupMobileMenu() {
-    const toggleBtn = document.getElementById("menu-toggle-btn");
-    const drawer = document.getElementById("mobile-drawer");
-    const menuIcon = document.getElementById("menu-icon");
+  // 2. إدارة عرض صورة المنتج أو الإطار المؤقت
+  const visualContainer = document.getElementById("product-visual-container");
+  if (PRODUCT_IMAGE_URL && PRODUCT_IMAGE_URL.trim() !== "") {
+    const img = document.createElement("img");
+    img.src = PRODUCT_IMAGE_URL;
+    img.alt = "Mind Go T-Shirt Edition 01";
+    img.className = "w-full h-full object-contain drop-shadow-md";
+    img.onerror = () => {
+      renderPlaceholder(visualContainer);
+    };
+    visualContainer.appendChild(img);
+  } else {
+    renderPlaceholder(visualContainer);
+  }
 
-    if (!toggleBtn || !drawer) return;
+  function renderPlaceholder(container) {
+    container.innerHTML = `
+      <div class="w-full max-w-[220px] aspect-[3/4] border border-dashed border-[#063061]/30 flex flex-col items-center justify-center p-6 space-y-4 bg-[#F5F0E6]">
+        <i data-lucide="shopping-bag" class="w-10 h-10 text-[#063061]/30"></i>
+        <div class="space-y-1">
+          <span class="block text-xs font-mono font-bold uppercase text-[#063061]">[ PRODUCT CANVAS ]</span>
+          <p class="text-[11px] text-[#063061]/60">Official product imagery will be displayed here</p>
+        </div>
+      </div>
+    `;
+    lucide.createIcons();
+  }
 
-    toggleBtn.addEventListener("click", () => {
-        const isOpen = !drawer.classList.contains("hidden");
+  // 3. قائمة الهاتف (Mobile Menu Toggle)
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
 
-        if (isOpen) {
-            drawer.classList.add("hidden");
-            toggleBtn.setAttribute("aria-expanded", "false");
-            toggleBtn.setAttribute("aria-label", "فتح القائمة");
-            menuIcon.innerHTML = `<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>`;
-        } else {
-            drawer.classList.remove("hidden");
-            toggleBtn.setAttribute("aria-expanded", "true");
-            toggleBtn.setAttribute("aria-label", "إغلاق القائمة");
-            menuIcon.innerHTML = `<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>`;
-        }
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
     });
+  });
 
-    // إغلاق القائمة تلقائياً عند الضغط على أي رابط داخلها
-    const mobileLinks = drawer.querySelectorAll("a");
-    mobileLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            drawer.classList.add("hidden");
-            toggleBtn.setAttribute("aria-expanded", "false");
-        });
-    });
-}
+  // 4. تعيين سنة حقوق النشر تلقائياً في التذييل
+  document.getElementById("footer-year").textContent = `© ${new Date().getFullYear()} Mind Go. All rights reserved.`;
+
+  // تفعيل أيقونات Lucide بعد إضافتها ديناميكياً
+  lucide.createIcons();
+});
