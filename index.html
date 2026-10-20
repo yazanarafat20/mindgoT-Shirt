@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Go — Official Edition T-Shirt</title>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="site-wrapper">
+        <!-- ----------------------------------------------------------------- -->
+        <!-- HEADER / NAVBAR                                                   -->
+        <!-- ----------------------------------------------------------------- -->
+        <header class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <span class="logo-box"><bdi>Mind Go</bdi></span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <a href="#concept">عن العلامة والمنتج</a>
+                    <!-- يظهر الزر أوتوماتيكياً عبر JavaScript عند تعيين رابط Amazon -->
+                    <div id="amazon-nav-container"></div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle-btn" class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
+                    <svg id="menu-icon" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div id="mobile-drawer" class="mobile-drawer hidden">
+                <a href="#concept" class="mobile-link">عن العلامة والمنتج</a>
+                <div id="amazon-mobile-container"></div>
+            </div>
+        </header>
+
+        <!-- ----------------------------------------------------------------- -->
+        <!-- MAIN CONTENT / HERO SECTION                                       -->
+        <!-- ----------------------------------------------------------------- -->
+        <main>
+            <section class="hero-section">
+                <div class="hero-container">
+                    
+                    <!-- Text & Conversion Content -->
+                    <div class="hero-content">
+                        <div class="tagline">
+                            <span class="tagline-dot"></span>
+                            <bdi>MIND GO // EDITION 01</bdi>
+                        </div>
+
+                        <h1 class="hero-title">
+                            تيشيرت مخصص للتفكير والعمل. صُمم لمن يطبق المعرفة ولا يكتفي باستهلاكها.
+                        </h1>
+
+                        <p class="hero-description">
+                            الإصدار الأول من علامة <span class="bold"><bdi>Mind Go</bdi></span>. تصميم هادئ يركز على الفهم والتطبيق الفعلي.
+                        </p>
+
+                        <!-- Action Area -->
+                        <div class="action-area">
+                            <div id="amazon-hero-container"></div>
+
+                            <div class="info-note">
+                                <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                                <span>جدول المقاسات الدقيق والخيارات المتاحة معروضة على صفحة المنتج في <bdi>Amazon</bdi>.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Image Area -->
+                    <div class="hero-visual">
+                        <div class="product-frame">
+                            <div id="product-image-container" class="image-container">
+                                <!-- سيتم توليد صورة المنتج أو الإطار المؤقت الهادئ بواسطة JS -->
+                            </div>
+                            <div class="frame-footer">
+                                <bdi>Mind Go T-Shirt // Official Edition</bdi>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ----------------------------------------------------------------- -->
+            {/* BRAND & PRODUCT CONCEPT                                           */}
+            <!-- ----------------------------------------------------------------- -->
+            <section id="concept" class="concept-section">
+                <div class="concept-container">
+                    <span class="section-tag">// الفلسفة والتصميم</span>
+                    <h2 class="section-title">رمزية الفهم والتطبيق</h2>
+                    <p class="section-text">
+                        تم إنشاء <span class="bold"><bdi>Mind Go</bdi></span> لتكون تعبيراً عن التطور الشخصي الموجه بالعمل. التيشيرت صُمم ليكون قطعة بسيطة تعبر عن عقليتك دون صخب بصري، مع نقل تجربة الطلب والمقاسات بالكامل عبر منصة <bdi>Amazon</bdi>.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ----------------------------------------------------------------- -->
+        <!-- FOOTER                                                            -->
+        <!-- ----------------------------------------------------------------- -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="copyright">
+                    <span class="footer-logo"><bdi>Mind Go</bdi></span>
+                    <p>© <span id="current-year"></span> <bdi>Mind Go</bdi>. جميع الحقوق محفوظة.</p>
+                </div>
+
+                <div class="disclaimer">
+                    <p><bdi>Amazon</bdi> وشعارها علامات تجارية مسجلة لشركة <bdi>Amazon.com, Inc.</bdi> أو شركائها.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS File -->
+    <script src="script.js"></script>
+</body>
+</html>
