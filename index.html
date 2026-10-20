@@ -1,145 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mind Go - T-Shirt</title>
-  <!-- ربط ملف التنسيقات الخارجي -->
-  <link rel="stylesheet" href="style.css">
-  <!-- مكتبة الأيقونات Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Go // Edition 01</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen font-sans text-[#063061] selection:bg-[#E49F2B] selection:text-[#063061] antialiased flex flex-col justify-between bg-[#F5F0E6]">
 
-  <div>
-    <!-- HEADER / NAVBAR -->
-    <header class="sticky top-0 z-50 bg-[#F5F0E6]/95 backdrop-blur-md border-b border-[#063061]/10">
-      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        
-        <!-- Logo -->
-        <div class="flex items-center">
-          <span class="text-2xl font-black tracking-widest uppercase border-2 border-[#063061] px-3 py-1 font-mono">
-            Mind Go
-          </span>
-        </div>
+    <div>
+        <!-- HEADER / NAVBAR -->
+        <header class="sticky top-0 z-50 bg-[#F5F0E6]/95 backdrop-blur-md border-b border-[#063061]/10">
+            <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+                
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <span class="text-2xl font-black tracking-widest uppercase border-2 border-[#063061] px-3 py-1 font-mono">
+                        Mind Go
+                    </span>
+                </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
-          <a href="#concept" class="hover:text-[#E49F2B] transition-colors focus:outline-none focus:ring-2 focus:ring-[#E49F2B] px-1 py-0.5 rounded">
-            Philosophy
-          </a>
-          
-          <div id="desktop-cta-container">
-            <!-- سيتم التحكم به عبر JavaScript -->
-          </div>
-        </nav>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="#concept" class="hover:text-[#E49F2B] transition-colors focus:outline-none focus:ring-2 focus:ring-[#E49F2B] px-1 py-0.5 rounded">
+                        Philosophy
+                    </a>
+                    
+                    <div id="desktop-cta-container">
+                        <!-- Dynamically injected via JavaScript -->
+                    </div>
+                </nav>
 
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden p-2 text-[#063061] focus:outline-none focus:ring-2 focus:ring-[#E49F2B] rounded" aria-label="Toggle menu">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-      </div>
-
-      <!-- Mobile Nav Drawer -->
-      <div id="mobile-menu" class="hidden md:hidden bg-[#F5F0E6] border-b border-[#063061]/10 px-6 py-6 space-y-4">
-        <a href="#concept" class="mobile-link block font-medium text-lg hover:text-[#E49F2B]">
-          Philosophy
-        </a>
-        <div id="mobile-cta-container">
-          <!-- سيتم التحكم به عبر JavaScript -->
-        </div>
-      </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="pt-8 pb-12 md:pt-16 md:pb-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          <!-- Product Identity & Value -->
-          <div class="lg:col-span-7 space-y-6 text-left">
-            <div class="inline-flex items-center gap-2 border border-[#063061]/20 px-3 py-1 text-xs font-mono tracking-widest text-[#063061] uppercase">
-              <span class="w-2 h-2 rounded-full bg-[#E49F2B]"></span>
-              MIND GO // EDITION 01
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden p-2 text-[#063061] focus:outline-none focus:ring-2 focus:ring-[#E49F2B] rounded" aria-label="Toggle menu">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
 
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.15] tracking-tight text-[#063061]">
-              A minimalist T-shirt built for thought and execution.
-            </h1>
-
-            <p class="text-base sm:text-lg text-[#063061]/80 max-w-xl leading-relaxed">
-              Designed for those who understand knowledge, apply it, and drive progress. Edition 01 by Mind Go.
-            </p>
-
-            <!-- Primary CTA Area -->
-            <div class="pt-2 space-y-3">
-              <div id="hero-cta-container">
-                <!-- سيتم التحكم به عبر JavaScript -->
-              </div>
-
-              <div class="flex items-center gap-2 text-xs text-[#063061]/70">
-                <i data-lucide="info" class="w-4 h-4 text-[#063061] flex-shrink-0"></i>
-                <span>Exact sizing charts and available variants are provided on Amazon.</span>
-              </div>
+            <!-- Mobile Nav Drawer -->
+            <div id="mobile-menu" class="hidden md:hidden bg-[#F5F0E6] border-b border-[#063061]/10 px-6 py-6 space-y-4">
+                <a href="#concept" class="mobile-link block font-medium text-lg hover:text-[#E49F2B]">
+                    Philosophy
+                </a>
+                <div id="mobile-cta-container">
+                    <!-- Dynamically injected via JavaScript -->
+                </div>
             </div>
-          </div>
+        </header>
 
-          <!-- Product Visual Frame -->
-          <div class="lg:col-span-5">
-            <div class="relative aspect-square sm:aspect-[4/5] bg-[#063061]/5 border border-[#063061]/15 p-6 flex flex-col items-center justify-center">
-              
-              <div id="product-visual-container" class="w-full h-full flex flex-col items-center justify-center">
-                <!-- سيتم عرض الصورة أو إطار المكون المؤقت هنا عبر الجافاسكريبت -->
-              </div>
+        <!-- HERO SECTION -->
+        <section class="pt-8 pb-12 md:pt-16 md:pb-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Product Identity & Value -->
+                    <div class="lg:col-span-7 space-y-6 text-left">
+                        <div class="inline-flex items-center gap-2 border border-[#063061]/20 px-3 py-1 text-xs font-mono tracking-widest text-[#063061] uppercase">
+                            <span class="w-2 h-2 rounded-full bg-[#E49F2B]"></span>
+                            MIND GO // EDITION 01
+                        </div>
 
-              <div class="mt-4 text-center">
-                <span class="text-xs font-mono text-[#063061]/60">
-                  Mind Go T-Shirt // Official Edition
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.15] tracking-tight text-[#063061]">
+                            A minimalist T-shirt built for thought and execution.
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-[#063061]/80 max-w-xl leading-relaxed">
+                            Designed for those who understand knowledge, apply it, and drive progress. Edition 01 by Mind Go.
+                        </p>
+
+                        <!-- Primary CTA Area -->
+                        <div class="pt-2 space-y-3">
+                            <div id="hero-cta-container">
+                                <!-- Dynamically injected via JavaScript -->
+                            </div>
+
+                            <div class="flex items-center gap-2 text-xs text-[#063061]/70">
+                                <svg class="w-4 h-4 text-[#063061] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Exact sizing charts and available variants are provided on Amazon.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Visual Frame -->
+                    <div class="lg:col-span-5">
+                        <div class="relative aspect-square sm:aspect-[4/5] bg-[#063061]/5 border border-[#063061]/15 p-6 flex flex-col items-center justify-center">
+                            
+                            <div id="product-visual-container" class="w-full h-full flex flex-col items-center justify-center">
+                                <!-- Dynamically injected via JavaScript -->
+                            </div>
+
+                            <div class="mt-4 text-center">
+                                <span class="text-xs font-mono text-[#063061]/60">
+                                    Mind Go T-Shirt // Official Edition
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BRAND & PRODUCT CONCEPT -->
+        <section id="concept" class="py-12 border-t border-[#063061]/10 bg-[#063061]/[0.02]">
+            <div class="max-w-4xl mx-auto px-6 space-y-4 text-left">
+                <span class="text-xs font-mono text-[#E49F2B] uppercase tracking-widest block">
+                    // PHILOSOPHY & DESIGN
                 </span>
-              </div>
-
+                <h2 class="text-2xl font-bold text-[#063061]">
+                    Driven by Mindset & Action
+                </h2>
+                <p class="text-base text-[#063061]/80 leading-relaxed">
+                    <span class="font-bold">Mind Go</span> was built as a visual mark for continuous growth and application. This T-shirt is designed with a clean aesthetic for those who value clarity and execution, backed by seamless fulfillment directly on Amazon.
+                </p>
             </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- BRAND & PRODUCT CONCEPT -->
-    <section id="concept" class="py-12 border-t border-[#063061]/10 bg-[#063061]/[0.02]">
-      <div class="max-w-4xl mx-auto px-6 space-y-4 text-left">
-        <span class="text-xs font-mono text-[#E49F2B] uppercase tracking-widest block">
-          // PHILOSOPHY & DESIGN
-        </span>
-        <h2 class="text-2xl font-bold text-[#063061]">
-          Driven by Mindset & Action
-        </h2>
-        <p class="text-base text-[#063061]/80 leading-relaxed">
-          <span class="font-bold">Mind Go</span> was built as a visual mark for continuous growth and application. This T-shirt is designed with a clean aesthetic for those who value clarity and execution, backed by seamless fulfillment directly on Amazon.
-        </p>
-      </div>
-    </section>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="py-8 border-t border-[#063061]/10 text-xs text-[#063061]/60 bg-[#F5F0E6]">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-      <div>
-        <span class="font-bold text-[#063061] uppercase tracking-wider block mb-0.5">Mind Go</span>
-        <p id="footer-year"></p>
-      </div>
-
-      <div class="max-w-xs text-center sm:text-right text-[11px]">
-        <p>
-          Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
-        </p>
-      </div>
+        </section>
     </div>
-  </footer>
 
-  <!-- ربط ملف الجافاسكريبت الخارجي -->
-  <script src="script.js"></script>
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-[#063061]/10 text-xs text-[#063061]/60 bg-[#F5F0E6]">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <span class="font-bold text-[#063061] uppercase tracking-wider block mb-0.5">Mind Go</span>
+                <p>&copy; <span id="current-year"></span> Mind Go. All rights reserved.</p>
+            </div>
+
+            <div class="max-w-xs text-center sm:text-right text-[11px]">
+                <p>
+                    Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

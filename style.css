@@ -1,14 +1,9 @@
-/* تخصيصات إضافية إن لزم الأمر بجانب Tailwind CSS */
+/* Custom styles or global overrides if needed */
 html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #F5F0E6;
-  color: #063061;
+    scroll-behavior: smooth;
 }
 
 ::selection {
-  background-color: #E49F2B;
-  color: #063061;
+    background-color: #E49F2B;
+    color: #063061;
 }
