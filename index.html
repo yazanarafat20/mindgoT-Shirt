@@ -3,98 +3,822 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mind Go // Edition 01</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Mind Go — Wear Your Mindset | Official T-Shirt</title>
+    <meta name="description" content="A clean, everyday T-shirt designed for those who value curiosity, growth, and a mindful approach to life. Available now on Amazon.">
+    <meta name="theme-color" content="#063061">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. CUSTOM DESIGN TOKENS & CSS VARIABLES (MIND GO BRAND IDENTITY)
+           ========================================================================== */
+        :root {
+            --color-primary-navy: #063061;
+            --color-primary-dark: #041f40;
+            --color-accent-orange: #E49F2B;
+            --color-accent-hover: #cb881c;
+            --color-bg-cream: #F5F0E6;
+            --color-bg-light: #FAFAF7;
+            --color-card-white: #FFFFFF;
+            
+            --color-text-main: #1E293B;
+            --color-text-muted: #64748B;
+            --color-border: #E2E8F0;
+            --color-border-dark: #1E3A8A;
+            
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            
+            --shadow-sm: 0 2px 4px rgba(6, 48, 97, 0.04);
+            --shadow-md: 0 10px 25px -5px rgba(6, 48, 97, 0.08);
+            --shadow-lg: 0 20px 35px -10px rgba(6, 48, 97, 0.15);
+            
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            --max-width: 1140px;
+        }
+
+        /* ==========================================================================
+           2. BASE STYLES & RESET
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg-cream);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        /* Container helper */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Section Spacing */
+        .section-padding {
+            padding: 4.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 0;
+            }
+        }
+
+        /* ==========================================================================
+           3. BUTTONS & INTERACTIVE ELEMENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-amazon {
+            background-color: var(--color-accent-orange);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(228, 159, 43, 0.35);
+        }
+
+        .btn-amazon:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(228, 159, 43, 0.45);
+        }
+
+        .btn-amazon:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-card-white);
+            color: var(--color-primary-navy);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary-navy);
+            background-color: var(--color-bg-light);
+        }
+
+        /* ==========================================================================
+           4. STICKY HEADER / NAVBAR
+           ========================================================================== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(245, 240, 230, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(6, 48, 97, 0.08);
+            padding: 0.875rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo img {
+            height: 70px !important;
+            width: auto !important;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-primary-navy);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION
+           ========================================================================== */
+        .hero-section {
+            padding: 3rem 0 4.5rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.875rem;
+            background-color: rgba(6, 48, 97, 0.06);
+            color: var(--color-primary-navy);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(6, 48, 97, 0.12);
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            font-weight: 700;
+            color: var(--color-primary-navy);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.35rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .trust-microcopy {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.825rem;
+            color: var(--color-text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .trust-microcopy i {
+            color: var(--color-primary-navy);
+        }
+
+        /* Gallery / Preview Component */
+        .gallery-container {
+            background-color: var(--color-card-white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+        }
+
+        .main-image-viewport {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background-color: #EAE6DD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-in;
+        }
+
+        .main-image-viewport img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .main-image-viewport:hover img {
+            transform: scale(1.03);
+        }
+
+        .thumbnails-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .thumb-btn {
+            flex: 1;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--color-border);
+            overflow: hidden;
+            background-color: #EAE6DD;
+            transition: var(--transition);
+            padding: 2px;
+        }
+
+        .thumb-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: calc(var(--radius-sm) - 2px);
+        }
+
+        .thumb-btn.active {
+            border-color: var(--color-accent-orange);
+            box-shadow: 0 0 0 2px rgba(228, 159, 43, 0.25);
+        }
+
+        /* ==========================================================================
+           6. PRODUCT SPECIFICATIONS & DETAILS SECTION
+           ========================================================================== */
+        .details-section {
+            background-color: var(--color-card-white);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--color-primary-navy);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--color-text-muted);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .closeup-wrapper {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            background-color: var(--color-bg-cream);
+        }
+
+        .closeup-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .spec-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background-color: var(--color-bg-light);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+
+        .spec-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            background-color: rgba(6, 48, 97, 0.08);
+            color: var(--color-primary-navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .spec-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-primary-navy);
+            margin-bottom: 0.2rem;
+        }
+
+        .spec-text p {
+            font-size: 0.925rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        .size-trigger-wrapper {
+            margin-top: 1.5rem;
+        }
+
+        /* ==========================================================================
+           7. DESIGN SHOWCASE SECTION
+           ========================================================================== */
+        .showcase-section {
+            background-color: var(--color-bg-cream);
+        }
+
+        .showcase-card {
+            background-color: var(--color-card-white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        @media (max-width: 992px) {
+            .showcase-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .showcase-img-container {
+            background-color: #121B28;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .showcase-img-container img {
+            max-height: 380px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+        }
+
+        .showcase-content {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .showcase-tag {
+            color: var(--color-accent-orange);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-title {
+            font-size: 1.85rem;
+            color: var(--color-primary-navy);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .showcase-text {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ==========================================================================
+           8. FINAL CALL-TO-ACTION SECTION
+           ========================================================================== */
+        .final-cta-section {
+            padding: 5rem 0;
+        }
+
+        .cta-box {
+            background-color: var(--color-primary-navy);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(228, 159, 43, 0.15) 0%, rgba(228, 159, 43, 0) 70%);
+            pointer-events: none;
+        }
+
+        .cta-box-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-box-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 520px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-box .btn-amazon {
+            padding: 1rem 2.25rem;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================================================
+           9. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: var(--color-primary-dark);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 2.5rem 0;
+            font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .footer-logo img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-disclaimer {
+            max-width: 600px;
+            line-height: 1.5;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ==========================================================================
+           10. SIZE GUIDE MODAL
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(6, 48, 97, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background-color: var(--color-card-white);
+            border-radius: var(--radius-md);
+            max-width: 550px;
+            width: 100%;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.35rem;
+            color: var(--color-primary-navy);
+            font-weight: 700;
+        }
+
+        .close-modal-btn {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            padding: 0.25rem;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .size-table th, .size-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .size-table th {
+            background-color: var(--color-bg-cream);
+            color: var(--color-primary-navy);
+            font-weight: 600;
+        }
+
+        .size-note {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Image Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(4, 31, 64, 0.9);
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #ffffff;
+            font-size: 2rem;
+            background: none;
+        }
+    </style>
 </head>
-<body class="min-h-screen font-sans text-[#063061] selection:bg-[#E49F2B] selection:text-[#063061] antialiased flex flex-col justify-between bg-[#F5F0E6]">
+<body>
 
-    <div>
-        <!-- HEADER / NAVBAR -->
-        <header class="sticky top-0 z-50 bg-[#F5F0E6]/95 backdrop-blur-md border-b border-[#063061]/10">
-            <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-                
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="images/MIND GO Logo (1).png" alt="Mind Go Logo" class="h-8 w-auto object-contain">
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
-                    <a href="#concept" class="hover:text-[#E49F2B] transition-colors focus:outline-none focus:ring-2 focus:ring-[#E49F2B] px-1 py-0.5 rounded">
-                        Philosophy
-                    </a>
-                    
-                    <div id="desktop-cta-container">
-                        <!-- Dynamically injected via JavaScript -->
-                    </div>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="menu-btn" class="md:hidden p-2 text-[#063061] focus:outline-none focus:ring-2 focus:ring-[#E49F2B] rounded" aria-label="Toggle menu">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-
-            <!-- Mobile Nav Drawer -->
-            <div id="mobile-menu" class="hidden md:hidden bg-[#F5F0E6] border-b border-[#063061]/10 px-6 py-6 space-y-4">
-                <a href="#concept" class="mobile-link block font-medium text-lg hover:text-[#E49F2B]">
-                    Philosophy
+    <!-- ==========================================================================
+       1. STICKY HEADER / NAVBAR
+       ========================================================================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="brand-logo" aria-label="Mind Go Home">
+                <!-- Replace with exact file path: MIND GO Logo (1).png -->
+                <img src="MIND GO Logo (2).png" alt="Mind Go Logo" onerror="this.onerror=null; this.src='https://placehold.co/160x40/063061/FFFFFF?text=MIND+GO';">
+            </a>
+            
+            <div class="nav-actions">
+                <!-- Amazon Product Outbound Link -->
+                <a href="[YOUR_AMAZON_PRODUCT_URL]" target="_blank" rel="noopener" class="btn btn-amazon nav-btn js-amazon-cta" data-cta-location="header">
+                    <span>Buy on Amazon</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
                 </a>
-                <div id="mobile-cta-container">
-                    <!-- Dynamically injected via JavaScript -->
-                </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- HERO SECTION -->
-        <section class="pt-8 pb-12 md:pt-16 md:pb-20">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <main>
+        <!-- ==========================================================================
+           2. HERO SECTION
+           ========================================================================== -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
                     
-                    <!-- Product Identity & Value -->
-                    <div class="lg:col-span-7 space-y-6 text-left">
-                        <div class="inline-flex items-center gap-2 border border-[#063061]/20 px-3 py-1 text-xs font-mono tracking-widest text-[#063061] uppercase">
-                            <span class="w-2 h-2 rounded-full bg-[#E49F2B]"></span>
-                            MIND GO // EDITION 01
+                    <!-- Left Column: Copy & CTAs -->
+                    <div class="hero-content">
+                        <div class="badge-pill">
+                            <i class="fa-solid fa-seedling"></i>
+                            <span>Official Mind Go Apparel</span>
                         </div>
-
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.15] tracking-tight text-[#063061]">
-                            A minimalist T-shirt built for thought and execution.
-                        </h1>
-
-                        <p class="text-base sm:text-lg text-[#063061]/80 max-w-xl leading-relaxed">
-                            Designed for those who understand knowledge, apply it, and drive progress. Edition 01 by Mind Go.
+                        
+                        <h1 class="hero-title">Wear Your Mindset.</h1>
+                        
+                        <p class="hero-description">
+                            A clean, everyday T-shirt designed for those who value curiosity, growth, and a mindful approach to life.
                         </p>
-
-                        <!-- Primary CTA Area -->
-                        <div class="pt-2 space-y-3">
-                            <div id="hero-cta-container">
-                                <!-- Dynamically injected via JavaScript -->
-                            </div>
-
-                            <div class="flex items-center gap-2 text-xs text-[#063061]/70">
-                                <svg class="w-4 h-4 text-[#063061] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <span>Exact sizing charts and available variants are provided on Amazon.</span>
+                        
+                        <div class="hero-cta-group">
+                            <a href="[YOUR_AMAZON_PRODUCT_URL]" target="_blank" rel="noopener" class="btn btn-amazon js-amazon-cta" data-cta-location="hero">
+                                <span>Buy on Amazon</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            
+                            <div class="trust-microcopy">
+                                <i class="fa-solid fa-shield-check"></i>
+                                <span>Official Store • Secure Checkout & Delivery via Amazon</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product Visual Frame -->
-                    <div class="lg:col-span-5">
-                        <div class="relative aspect-square sm:aspect-[4/5] bg-[#063061]/5 border border-[#063061]/15 p-6 flex flex-col items-center justify-center">
+                    <!-- Right Column: Interactive Image Gallery -->
+                    <div class="gallery-container">
+                        <div class="main-image-viewport js-lightbox-trigger" id="mainImageViewport" title="Click to enlarge view">
+                            <!-- Main Active Asset Display -->
+                            <img id="mainProductImage" src="The Production Mockup (Front).png" alt="Mind Go Navy T-Shirt Front Production View" onerror="this.onerror=null; this.src='https://placehold.co/600x600/063061/FFFFFF?text=Mind+Go+Navy+T-Shirt';">
+                        </div>
+                        
+                        <!-- Thumbnail Controls -->
+                        <div class="thumbnails-row" role="tablist" aria-label="Product Image Gallery">
+                            <button class="thumb-btn active js-thumb-btn" data-img-src="The Production Mockup (Front).png" data-alt="Mind Go Production Mockup Front View" role="tab" aria-selected="true">
+                                <img src="The Production Mockup (Front).png" alt="Mockup Preview" onerror="this.onerror=null; this.src='https://placehold.co/120x120/063061/FFFFFF?text=Mockup';">
+                            </button>
                             
-                            <div id="product-visual-container" class="w-full h-full flex flex-col items-center justify-center">
-                                <!-- Dynamically injected via JavaScript -->
-                            </div>
+                            <button class="thumb-btn js-thumb-btn" data-img-src="Mind Go Navy T-Shirt.jpg" data-alt="Mind Go Navy T-Shirt Presentation" role="tab" aria-selected="false">
+                                <img src="Mind Go Navy T-Shirt.jpg" alt="Navy T-Shirt Preview" onerror="this.onerror=null; this.src='https://placehold.co/120x120/063061/FFFFFF?text=Navy+Shirt';">
+                            </button>
+                            
+                            <button class="thumb-btn js-thumb-btn" data-img-src="Close-Up Presentation.jpg" data-alt="Mind Go Close-Up Fabric and Print Detail" role="tab" aria-selected="false">
+                                <img src="Close-Up Presentation.jpg" alt="Close Up Preview" onerror="this.onerror=null; this.src='https://placehold.co/120x120/063061/FFFFFF?text=Close+Up';">
+                            </button>
 
-                            <div class="mt-4 text-center">
-                                <span class="text-xs font-mono text-[#063061]/60">
-                                    Mind Go T-Shirt // Official Edition
-                                </span>
-                            </div>
-
+                            <button class="thumb-btn js-thumb-btn" data-img-src="Flat Artwork Layout (Separation).jpg" data-alt="Mind Go Artwork Separation Layout" role="tab" aria-selected="false">
+                                <img src="Flat Artwork Layout (Separation).jpg" alt="Artwork Preview" onerror="this.onerror=null; this.src='https://placehold.co/120x120/063061/FFFFFF?text=Artwork';">
+                            </button>
                         </div>
                     </div>
 
@@ -102,38 +826,317 @@
             </div>
         </section>
 
-        <!-- BRAND & PRODUCT CONCEPT -->
-        <section id="concept" class="py-12 border-t border-[#063061]/10 bg-[#063061]/[0.02]">
-            <div class="max-w-4xl mx-auto px-6 space-y-4 text-left">
-                <span class="text-xs font-mono text-[#E49F2B] uppercase tracking-widest block">
-                    // PHILOSOPHY & DESIGN
-                </span>
-                <h2 class="text-2xl font-bold text-[#063061]">
-                    Driven by Mindset & Action
-                </h2>
-                <p class="text-base text-[#063061]/80 leading-relaxed">
-                    <span class="font-bold">Mind Go</span> was built as a visual mark for continuous growth and application. This T-shirt is designed with a clean aesthetic for those who value clarity and execution, backed by seamless fulfillment directly on Amazon.
-                </p>
+        <!-- ==========================================================================
+           3. PRODUCT DETAILS & SPECIFICATIONS SECTION
+           ========================================================================== -->
+        <section class="details-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Crafted for Everyday Growth</h2>
+                    <p class="section-subtitle">Thoughtfully designed with focus on long-lasting comfort, structured fabric feel, and reliable quality.</p>
+                </div>
+
+                <div class="details-grid">
+                    <!-- Left Column: Close-Up Presentation -->
+                    <div class="closeup-wrapper">
+                        <!-- Replace with exact file path: Close-Up Presentation.jpg -->
+                        <img src="Close-Up Presentation.jpg" alt="Close-Up Presentation of Mind Go T-shirt print and texture" onerror="this.onerror=null; this.src='https://placehold.co/600x500/063061/FFFFFF?text=Close-Up+Fabric+Detail';">
+                    </div>
+
+                    <!-- Right Column: Specs List -->
+                    <div>
+                        <div class="spec-list">
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="fa-solid fa-shirt"></i>
+                                </div>
+                                <div class="spec-text">
+                                    <h4>Fabric & Composition</h4>
+                                    <!-- Replace bracketed text with official Amazon info once published -->
+                                    <p>[Insert Fabric Composition from Amazon Page, e.g., 100% Premium Combed Cotton / Mid-weight breathable knit]</p>
+                                </div>
+                            </div>
+
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="fa-solid fa-ruler-combined"></i>
+                                </div>
+                                <div class="spec-text">
+                                    <h4>Fit & Cut</h4>
+                                    <!-- Replace bracketed text with official Amazon info once published -->
+                                    <p>[Insert Fit Type from Amazon Page, e.g., Modern Regular Fit / Tailored Crew Neckline]</p>
+                                </div>
+                            </div>
+
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="fa-solid fa-rotate-left"></i>
+                                </div>
+                                <div class="spec-text">
+                                    <h4>Care Instructions</h4>
+                                    <!-- Replace bracketed text with official Amazon info once published -->
+                                    <p>[Insert Care Instructions from Amazon Page, e.g., Machine wash cold with like colors, tumble dry low]</p>
+                                </div>
+                            </div>
+
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="fa-solid fa-tags"></i>
+                                </div>
+                                <div class="spec-text">
+                                    <h4>Available Sizes</h4>
+                                    <p>S, M, L, XL, XXL — <span style="color: var(--color-primary-navy); font-weight: 500;">Verify live stock availability directly on Amazon.</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="size-trigger-wrapper">
+                            <button class="btn btn-secondary js-open-size-modal" style="width: 100%;">
+                                <i class="fa-solid fa-table-list"></i>
+                                <span>View Size Guide</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- FOOTER -->
-    <footer class="py-8 border-t border-[#063061]/10 text-xs text-[#063061]/60 bg-[#F5F0E6]">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div>
-                <span class="font-bold text-[#063061] uppercase tracking-wider block mb-0.5">Mind Go</span>
-                <p>&copy; <span id="current-year"></span> Mind Go. All rights reserved.</p>
-            </div>
+        <!-- ==========================================================================
+           4. DESIGN SHOWCASE SECTION
+           ========================================================================== -->
+        <section class="showcase-section section-padding">
+            <div class="container">
+                <div class="showcase-card">
+                    <!-- Artwork Graphic Container -->
+                    <div class="showcase-img-container">
+                        <!-- Replace with exact file path: Flat Artwork Layout (Separation).jpg -->
+                        <img src="Flat Artwork Layout (Separation).jpg" alt="Mind Go Flat Artwork Layout and Color Separation" onerror="this.onerror=null; this.src='https://placehold.co/500x500/063061/FFFFFF?text=Flat+Artwork+Layout';">
+                    </div>
 
-            <div class="max-w-xs text-center sm:text-right text-[11px]">
-                <p>
-                    Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
-                </p>
+                    <!-- Narrative -->
+                    <div class="showcase-content">
+                        <span class="showcase-tag">Design Concept</span>
+                        <h3 class="showcase-title">The Artwork & Mindset</h3>
+                        <p class="showcase-text">
+                            Mind Go is built around the continuous pursuit of learning, awareness, and personal evolution. The graphic concept serves as a subtle daily reminder to stay curious and maintain an intentional approach to your daily routine.
+                        </p>
+                        <div>
+                            <a href="[YOUR_AMAZON_PRODUCT_URL]" target="_blank" rel="noopener" class="btn btn-amazon js-amazon-cta" data-cta-location="showcase">
+                                <span>Order on Amazon</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- ==========================================================================
+           5. FINAL CALL-TO-ACTION SECTION
+           ========================================================================== -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2 class="cta-box-title">Ready to Wear Your Mindset?</h2>
+                    <p class="cta-box-subtitle">Get your Mind Go Navy T-Shirt delivered securely through Amazon's reliable fulfillment service.</p>
+                    <a href="[YOUR_AMAZON_PRODUCT_URL]" target="_blank" rel="noopener" class="btn btn-amazon js-amazon-cta" data-cta-location="final_cta">
+                        <span>Buy on Amazon</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.9rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+       6. FOOTER
+       ========================================================================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-logo">
+                <img src="MIND_GO_Logo_white.png" alt="Mind Go Logo">
+                <span>MIND GO</span>
+            </div>
+            <p class="footer-disclaimer">
+                Mind Go is an independent lifestyle brand focusing on growth and mindful living. All product purchases, checkout processing, and shipping fulfillments are completed securely on Amazon.
+            </p>
+            <p style="font-size: 0.75rem; opacity: 0.5;">
+                &copy; <span id="yearSpan"></span> Mind Go. All rights reserved.
+            </p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ==========================================================================
+       7. MODALS (SIZE GUIDE & LIGHTBOX)
+       ========================================================================== -->
+    <!-- Size Guide Modal -->
+    <div class="modal-overlay" id="sizeModal" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Size Guide (Chest & Length)</h3>
+                <button class="close-modal-btn js-close-size-modal" aria-label="Close size guide">&times;</button>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+                Measurements below are standard apparel guidelines. Please refer to Amazon's sizing selector for exact fit recommendations.
+            </p>
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Chest (Inches)</th>
+                        <th>Length (Inches)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Small (S)</strong></td>
+                        <td>34" - 36"</td>
+                        <td>28"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medium (M)</strong></td>
+                        <td>38" - 40"</td>
+                        <td>29"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Large (L)</strong></td>
+                        <td>42" - 44"</td>
+                        <td>30"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>X-Large (XL)</strong></td>
+                        <td>46" - 48"</td>
+                        <td>31"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>XX-Large (2XL)</strong></td>
+                        <td>50" - 52"</td>
+                        <td>32"</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="size-note">* Sizes may vary slightly based on fabric cut. Check Amazon listing for precise details.</p>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+        <button class="lightbox-close js-close-lightbox" aria-label="Close zoomed view">&times;</button>
+        <img id="lightboxImg" src="" alt="Zoomed view">
+    </div>
+
+    <!-- ==========================================================================
+       8. VANILLA JAVASCRIPT (INTERACTION & ANALYTICS EVENT TRACKING)
+       ========================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set dynamic copyright year
+            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+            /* --- 1. Gallery Thumbnail Switcher --- */
+            const mainImg = document.getElementById('mainProductImage');
+            const thumbBtns = document.querySelectorAll('.js-thumb-btn');
+
+            thumbBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    thumbBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+
+                    // Swap image source & alt text
+                    const newSrc = btn.getAttribute('data-img-src');
+                    const newAlt = btn.getAttribute('data-alt');
+                    
+                    if (mainImg && newSrc) {
+                        mainImg.src = newSrc;
+                        mainImg.alt = newAlt || 'Mind Go T-shirt view';
+                    }
+                });
+            });
+
+            /* --- 2. Lightbox Zoom Functionality --- */
+            const lightbox = document.getElementById('lightboxModal');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const trigger = document.getElementById('mainImageViewport');
+            const closeLightboxBtn = document.querySelector('.js-close-lightbox');
+
+            if (trigger && lightbox && lightboxImg) {
+                trigger.addEventListener('click', () => {
+                    lightboxImg.src = mainImg.src;
+                    lightboxImg.alt = mainImg.alt;
+                    lightbox.classList.add('active');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                });
+
+                closeLightboxBtn.addEventListener('click', () => {
+                    lightbox.classList.remove('active');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                });
+
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.classList.remove('active');
+                        lightbox.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+
+            /* --- 3. Size Guide Modal Handler --- */
+            const sizeModal = document.getElementById('sizeModal');
+            const openSizeBtn = document.querySelector('.js-open-size-modal');
+            const closeSizeBtn = document.querySelector('.js-close-size-modal');
+
+            if (sizeModal && openSizeBtn && closeSizeBtn) {
+                openSizeBtn.addEventListener('click', () => {
+                    sizeModal.classList.add('active');
+                    sizeModal.setAttribute('aria-hidden', 'false');
+                });
+
+                closeSizeBtn.addEventListener('click', () => {
+                    sizeModal.classList.remove('active');
+                    sizeModal.setAttribute('aria-hidden', 'true');
+                });
+
+                sizeModal.addEventListener('click', (e) => {
+                    if (e.target === sizeModal) {
+                        sizeModal.classList.remove('active');
+                        sizeModal.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+
+            /* --- 4. Outbound Analytics Click Tracker for "Buy on Amazon" Buttons --- */
+            const amazonCtaButtons = document.querySelectorAll('.js-amazon-cta');
+
+            amazonCtaButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const ctaLocation = button.getAttribute('data-cta-location') || 'unknown';
+                    const targetUrl = button.getAttribute('href');
+
+                    // Log outbound conversion attempt
+                    console.log(`[Analytics Tracked] Amazon CTA clicked from location: ${ctaLocation}`);
+
+                    // Send event to Google Analytics (gtag.js) if available
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'click_buy_on_amazon', {
+                            'event_category': 'Outbound Link',
+                            'event_label': ctaLocation,
+                            'transport_type': 'beacon'
+                        });
+                    }
+
+                    // Fallback warning if URL hasn't been set yet
+                    if (targetUrl === '[YOUR_AMAZON_PRODUCT_URL]' || targetUrl === '#') {
+                        e.preventDefault();
+                        alert('Please replace [YOUR_AMAZON_PRODUCT_URL] with your official Amazon product listing URL in index.html');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
