@@ -3,7 +3,7 @@
 // Enter your official Amazon product link below when available.
 // ============================================================================
 const AMAZON_PRODUCT_URL = ""; // e.g. "https://www.amazon.com/dp/B0XXXXXX"
-const PRODUCT_IMAGE_URL = "images/The Production Mockup (Front).jpg"; // Configured with your actual mockup asset
+const PRODUCT_IMAGE_URL = "images/The Production Mockup (Front).png"; // Configured with your actual mockup asset
 
 document.addEventListener("DOMContentLoaded", () => {
     // Set current year in footer
